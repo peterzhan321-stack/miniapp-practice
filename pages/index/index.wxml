@@ -1,27 +1,44 @@
 <!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+<!-- 个人名片页面 -->
+<view class="container">
+  
+  <!-- 顶部：头像、姓名、专业年级 -->
+  <view class="header-section">
+    <!-- 头像占位（圆形） -->
+    <view class="avatar"></view>
+    <!-- 姓名 -->
+    <text class="name">{{name}}</text>
+    <!-- 专业年级 -->
+    <text class="major">{{major}}</text>
+  </view>
+  
+  <!-- 中部：联系方式列表 -->
+  <view class="contacts-section">
+    <text class="section-title">联系方式</text>
+    <view class="contacts-list">
+      <!-- 使用 wx:for 渲染 contacts 数组 -->
+      <view wx:for="{{contacts}}" wx:key="index" class="contact-item">
+        <text class="contact-label">{{item.label}}：</text>
+        <text class="contact-value">{{item.value}}</text>
+      </view>
     </view>
   </view>
-</scroll-view>
+  
+  <!-- 下部：技能标签 -->
+  <view class="skills-section">
+    <text class="section-title">技能标签</text>
+    <view class="skills-list">
+      <!-- 使用 wx:for 渲染 skills 数组 -->
+      <view wx:for="{{skills}}" wx:key="index" class="skill-tag" bindtap="onSkillTap" data-skill="{{item}}">
+        <text class="skill-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部：个人简介文本 -->
+  <view class="bio-section">
+    <text class="section-title">个人简介</text>
+    <text class="bio-text">{{bio}}</text>
+  </view>
+  
+</view>

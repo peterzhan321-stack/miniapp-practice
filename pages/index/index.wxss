@@ -1,62 +1,148 @@
-/**index.wxss**/
-page {
-  height: 100vh;
+/* index.wxss */
+/* 个人名片页面样式 */
+
+/* 页面容器 - 使用 flex 纵向布局 */
+.container {
   display: flex;
   flex-direction: column;
-}
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
+  padding: 30rpx;
+  background-color: #1976d2;
+  min-height: 100vh;
 }
 
-.userinfo {
+/* ==================== 顶部区域 ==================== */
+/* 头部区域 - 居中显示 */
+.header-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
-  width: 80%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
+/* 头像占位 - 圆形 */
 .avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 20rpx;
+}
+
+/* 姓名样式 */
+.name {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+/* 专业年级样式 */
+.major {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+/* ==================== 中部区域 - 联系方式 ==================== */
+/* 联系方式区域 */
+.contacts-section {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 区块标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
   display: block;
-  width: 56px;
-  height: 56px;
 }
 
-.nickname-wrapper {
+/* 联系方式列表 - 使用 flex 纵向布局 */
+.contacts-list {
   display: flex;
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
+  flex-direction: column;
 }
 
-.nickname-label {
-  width: 105px;
+/* 单个联系项 - 使用 flex 横向布局 */
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
 }
 
-.nickname-input {
+/* 最后一项不需要下边框 */
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+/* 联系项标签 */
+.contact-label {
+  font-size: 28rpx;
+  color: #666666;
+  width: 120rpx;
+}
+
+/* 联系项值 */
+.contact-value {
+  font-size: 28rpx;
+  color: #333333;
   flex: 1;
+}
+
+/* ==================== 下部区域 - 技能标签 ==================== */
+/* 技能区域 */
+.skills-section {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 技能列表 - 使用 flex 横向换行布局 */
+.skills-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+/* 技能标签 */
+.skill-tag {
+  background-color: #e3f2fd;
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+}
+
+/* 技能文字 */
+.skill-text {
+  font-size: 26rpx;
+  color: #1976d2;
+}
+
+/* ==================== 底部区域 - 个人简介 ==================== */
+/* 个人简介区域 */
+.bio-section {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 个人简介文本 */
+.bio-text {
+  font-size: 28rpx;
+  color: #555555;
+  line-height: 1.8;
+  text-align: justify;
 }

@@ -9,7 +9,7 @@
     "navigationBarBackgroundColor": "#ffffff"
   },
   "style": "v2",
-  "componentFramework": "glass-easel",
+  "componentFramework": "exparser",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

@@ -3,8 +3,111 @@ page {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f5f5f5;
 }
+
 .scrollarea {
   flex: 1;
   overflow-y: hidden;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16rpx;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.stats-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 28rpx;
+}
+
+.stats-count {
+  color: #fff;
+  font-size: 64rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+
+.input-area {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.checkin-input {
+  flex: 1;
+  height: 72rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.checkin-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-size: 28rpx;
+  padding: 0 30rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
+  border: none;
+}
+
+.checkin-btn::after {
+  border: none;
+}
+
+.record-list {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  min-height: 200rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.empty-tip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.record-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-text {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.record-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
 }

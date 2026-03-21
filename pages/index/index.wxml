@@ -4,7 +4,7 @@
   <view class="container">
     <view class="stats">
       <text class="stats-label">累计打卡</text>
-      <text class="stats-count">{{records.length}}天</text>
+      <text class="stats-count">{{totalDays}}天</text>
     </view>
 
     <view class="input-area">

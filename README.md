@@ -1,1 +1,1 @@
-# miniapp-practice
+# MobileAppDev

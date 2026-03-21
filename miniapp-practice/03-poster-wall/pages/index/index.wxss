@@ -1,0 +1,127 @@
+/* 首页样式 - 海报墙 */
+
+/* 页面容器 */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+/* 搜索栏 */
+.search-bar {
+  padding: 20rpx 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 40rpx;
+  padding: 16rpx 24rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  color: #999999;
+  margin-right: 12rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.search-input::placeholder {
+  color: #999999;
+}
+
+.clear-icon {
+  font-size: 24rpx;
+  color: #999999;
+  padding: 8rpx;
+}
+
+/* 海报滚动区域 */
+.poster-scroll {
+  flex: 1;
+  padding: 20rpx;
+}
+
+/* 瀑布流容器 */
+.poster-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 海报列 */
+.poster-column {
+  width: calc(50% - 10rpx);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 加载更多 */
+.loading-more,
+.no-more {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.loading-more text,
+.no-more text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+/* 悬浮发布按钮 */
+.fab-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.5);
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.fab-btn:active {
+  transform: scale(0.9);
+}
+
+.fab-icon {
+  font-size: 56rpx;
+  color: #ffffff;
+  font-weight: 300;
+  line-height: 1;
+}

@@ -1,0 +1,65 @@
+<!-- 首页 - 海报墙 -->
+<view class="page-container">
+  
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrapper">
+      <text class="search-icon">🔍</text>
+      <input 
+        class="search-input" 
+        type="text" 
+        placeholder="搜索活动名称" 
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        confirm-type="search"
+        bindconfirm="onSearch"
+      />
+      <text class="clear-icon" wx:if="{{searchKeyword}}" bindtap="clearSearch">✕</text>
+    </view>
+  </view>
+
+  <!-- 瀑布流海报墙 -->
+  <scroll-view 
+    class="poster-scroll" 
+    scroll-y 
+    enhanced 
+    show-scrollbar="{{false}}"
+    bindscrolltolower="loadMore"
+  >
+    <view class="poster-container">
+      <!-- 左列 -->
+      <view class="poster-column left-column">
+        <poster-card 
+          wx:for="{{leftColumn}}" 
+          wx:key="id"
+          poster="{{item}}"
+          bind:cardtap="onCardTap"
+        />
+      </view>
+
+      <!-- 右列 -->
+      <view class="poster-column right-column">
+        <poster-card 
+          wx:for="{{rightColumn}}" 
+          wx:key="id"
+          poster="{{item}}"
+          bind:cardtap="onCardTap"
+        />
+      </view>
+    </view>
+
+    <!-- 加载更多提示 -->
+    <view class="loading-more" wx:if="{{isLoading}}">
+      <text>加载中...</text>
+    </view>
+    <view class="no-more" wx:if="{{noMoreData}}">
+      <text>没有更多了</text>
+    </view>
+  </scroll-view>
+
+  <!-- 悬浮发布按钮 -->
+  <view class="fab-btn" bindtap="onPublishTap">
+    <text class="fab-icon">+</text>
+  </view>
+
+</view>

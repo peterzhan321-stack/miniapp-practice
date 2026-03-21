@@ -1,0 +1,56 @@
+<!-- 详情页 - 活动详情 -->
+<view class="detail-container">
+  
+  <!-- 活动海报图 -->
+  <view class="poster-section">
+    <image class="detail-image" src="{{poster.imageUrl}}" mode="widthFix"/>
+    <!-- 收藏按钮 -->
+    <view class="favorite-btn {{isFavorite ? 'active' : ''}}" bindtap="toggleFavorite">
+      <text class="favorite-icon">{{isFavorite ? '★' : '☆'}}</text>
+    </view>
+  </view>
+
+  <!-- 活动信息 -->
+  <view class="info-section">
+    <text class="detail-title">{{poster.title}}</text>
+    
+    <view class="info-item">
+      <text class="info-label">📅 活动日期</text>
+      <text class="info-value">{{poster.date}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">📍 活动地点</text>
+      <text class="info-value">{{poster.location}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">🏷️ 活动分类</text>
+      <text class="info-value">{{poster.category || '未分类'}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">👥 发起社团</text>
+      <text class="info-value club">{{poster.clubName}}</text>
+    </view>
+  </view>
+
+  <!-- 活动描述 -->
+  <view class="desc-section">
+    <text class="desc-title">活动介绍</text>
+    <text class="desc-content">{{description}}</text>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="action-btn share-btn" bindtap="onShare">
+      <text class="action-icon">↗️</text>
+      <text class="action-text">分享</text>
+    </view>
+    <view class="action-btn favorite-action {{isFavorite ? 'active' : ''}}" bindtap="toggleFavorite">
+      <text class="action-icon">{{isFavorite ? '★' : '☆'}}</text>
+      <text class="action-text">{{isFavorite ? '已收藏' : '收藏'}}</text>
+    </view>
+  </view>
+
+</view>

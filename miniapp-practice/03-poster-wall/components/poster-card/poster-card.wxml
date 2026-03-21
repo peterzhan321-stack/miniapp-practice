@@ -1,0 +1,38 @@
+<!-- poster-card 组件 - 海报卡片 -->
+<view class="poster-card">
+  <!-- 图片区域（点击跳转详情） -->
+  <view class="image-wrapper" bindtap="onImageTap">
+    <image 
+      class="poster-image {{isLoaded ? 'loaded' : ''}}" 
+      src="{{poster.imageUrl}}" 
+      mode="widthFix"
+      lazy-load
+      bindload="onImageLoad"
+      binderror="onImageError"
+    />
+    <!-- 加载中占位 -->
+    <view class="image-placeholder" wx:if="{{!isLoaded}}">
+      <view class="loading-spinner"></view>
+    </view>
+  </view>
+  
+  <!-- 信息区域 -->
+  <view class="poster-info" bindtap="onImageTap">
+    <text class="poster-title">{{poster.title}}</text>
+    <view class="poster-meta">
+      <text class="date-tag">📅 {{poster.date}}</text>
+      <text class="location">📍 {{poster.location}}</text>
+    </view>
+    <view class="club-info">
+      <text class="club-name">{{poster.clubName}}</text>
+    </view>
+  </view>
+  
+  <!-- 点赞按钮 -->
+  <view class="like-section" catchtap="onLikeTap">
+    <view class="like-btn {{isLiked ? 'liked' : ''}}">
+      <text class="like-icon">{{isLiked ? '♥' : '♡'}}</text>
+    </view>
+    <text class="like-count">{{likeCount}}</text>
+  </view>
+</view>

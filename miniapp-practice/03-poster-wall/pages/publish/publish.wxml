@@ -1,0 +1,124 @@
+<!-- 发布页 - 发布新活动 -->
+<view class="publish-container">
+  
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">发布活动</text>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-container">
+    
+    <!-- 图片选择器 -->
+    <view class="form-item">
+      <text class="form-label">活动海报</text>
+      <view class="image-picker">
+        <view class="image-list">
+          <!-- 已选图片预览 -->
+          <view class="image-preview" wx:if="{{selectedImage}}">
+            <image class="preview-img" src="{{selectedImage}}" mode="aspectFill"/>
+            <view class="delete-btn" bindtap="deleteImage">
+              <text class="delete-icon">✕</text>
+            </view>
+          </view>
+          
+          <!-- 添加图片按钮 -->
+          <view class="add-image-btn" wx:if="{{!selectedImage}}" bindtap="chooseImage">
+            <text class="add-icon">+</text>
+            <text class="add-text">添加图片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 标题输入框 -->
+    <view class="form-item">
+      <text class="form-label">活动标题</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        placeholder="请输入活动标题"
+        value="{{title}}"
+        bindinput="onTitleInput"
+        maxlength="50"
+      />
+    </view>
+
+    <!-- 活动分类选择器 -->
+    <view class="form-item">
+      <text class="form-label">活动分类</text>
+      <picker 
+        class="category-picker" 
+        mode="selector" 
+        range="{{categories}}" 
+        value="{{categoryIndex}}"
+        bindchange="onCategoryChange"
+      >
+        <view class="picker-content">
+          <text class="picker-text {{categoryIndex === -1 ? 'placeholder' : ''}}">
+            {{categoryIndex === -1 ? '请选择活动分类' : categories[categoryIndex]}}
+          </text>
+          <text class="picker-arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 活动地点 -->
+    <view class="form-item">
+      <text class="form-label">活动地点</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        placeholder="请输入活动地点"
+        value="{{location}}"
+        bindinput="onLocationInput"
+        maxlength="50"
+      />
+    </view>
+
+    <!-- 活动日期 -->
+    <view class="form-item">
+      <text class="form-label">活动日期</text>
+      <picker 
+        class="date-picker" 
+        mode="date" 
+        value="{{date}}"
+        start="{{today}}"
+        bindchange="onDateChange"
+      >
+        <view class="picker-content">
+          <text class="picker-text {{!date ? 'placeholder' : ''}}">
+            {{date || '请选择活动日期'}}
+          </text>
+          <text class="picker-arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 发起社团 -->
+    <view class="form-item">
+      <text class="form-label">发起社团</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        placeholder="请输入发起社团名称"
+        value="{{clubName}}"
+        bindinput="onClubNameInput"
+        maxlength="30"
+      />
+    </view>
+
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button 
+      class="submit-btn {{isFormValid ? 'active' : ''}}" 
+      bindtap="onSubmit"
+      disabled="{{!isFormValid}}"
+    >
+      发布活动
+    </button>
+  </view>
+
+</view>

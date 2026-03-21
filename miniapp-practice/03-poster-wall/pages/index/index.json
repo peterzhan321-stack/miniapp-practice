@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "海报墙",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f8f8f8",
+  "usingComponents": {
+    "poster-card": "/components/poster-card/poster-card"
+  }
+}

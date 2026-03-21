@@ -7,6 +7,25 @@
       <text class="stats-count">{{totalDays}}天</text>
     </view>
 
+    <view class="calendar-toggle" bindtap="onToggleCalendar">
+      <text>{{showCalendar ? '收起日历' : '查看打卡日历'}}</text>
+      <text class="toggle-icon">{{showCalendar ? '▲' : '▼'}}</text>
+    </view>
+
+    <view wx:if="{{showCalendar}}" class="calendar-section">
+      <view class="calendar-header">
+        <text>{{calendarDays[7].date.slice(0, 7)}} 月</text>
+      </view>
+      <view class="calendar-weekdays">
+        <text wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this" class="weekday">{{item}}</text>
+      </view>
+      <view class="calendar-grid">
+        <view wx:for="{{calendarDays}}" wx:key="date" class="calendar-day {{item.empty ? 'empty' : ''}} {{item.checked ? 'checked' : ''}}">
+          <text wx:if="{{!item.empty}}">{{item.day}}</text>
+        </view>
+      </view>
+    </view>
+
     <view class="input-area">
       <input 
         class="checkin-input" 
@@ -23,12 +42,26 @@
       </view>
       <block wx:else>
         <view wx:for="{{records}}" wx:key="id" class="record-item">
-          <view class="record-content">
-            <text class="record-text">{{item.content}}</text>
-            <text class="record-date">{{item.time}}</text>
+          <view class="record-header" data-index="{{index}}" bindtap="onToggleExpand">
+            <view class="record-content">
+              <text class="record-text">{{item.content}}</text>
+              <text class="record-date">{{item.time}}</text>
+            </view>
+            <view class="record-actions">
+              <text class="expand-icon">{{expandedIndex === index ? '▼' : '▶'}}</text>
+              <text class="delete-btn" data-index="{{index}}" bindtap="onDelete">删除</text>
+            </view>
           </view>
-          <view class="record-actions">
-            <text class="delete-btn" data-index="{{index}}" bindtap="onDelete">删除</text>
+          <view wx:if="{{expandedIndex === index}}" class="note-section">
+            <text class="note-label">今日小结：</text>
+            <textarea 
+              class="note-input" 
+              placeholder="添加备注..." 
+              value="{{item.note}}"
+              data-index="{{index}}"
+              bindinput="onNoteInput"
+              auto-height
+            />
           </view>
         </view>
       </block>

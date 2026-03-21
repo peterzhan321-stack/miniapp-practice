@@ -1,7 +1,32 @@
 <!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<navigation-bar title="学习打卡" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    Weixin
+    <view class="stats">
+      <text class="stats-label">累计打卡</text>
+      <text class="stats-count">{{records.length}}天</text>
+    </view>
+
+    <view class="input-area">
+      <input 
+        class="checkin-input" 
+        placeholder="今天学习了什么？" 
+        value="{{inputValue}}"
+        bindinput="onInputChange"
+      />
+      <button class="checkin-btn" bindtap="onCheckin">打卡</button>
+    </view>
+
+    <view class="record-list">
+      <view wx:if="{{records.length === 0}}" class="empty-tip">
+        <text>还没有打卡记录，开始你的第一次打卡吧！</text>
+      </view>
+      <view wx:for="{{records}}" wx:key="id" class="record-item">
+        <view class="record-content">
+          <text class="record-text">{{item.content}}</text>
+          <text class="record-date">{{item.date}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </scroll-view>
